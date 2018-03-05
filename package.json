@@ -9,7 +9,9 @@
   "scripts": {
     "start": "rimraf ./dist && babel -d ./dist ./src -s && node dist/index.js",
     "dev": "node index.js",
-    "lint:js": "eslint ./src"
+    "lint:js": "eslint ./src",
+    "precommit": "yarn run lint:js",
+    "prepush": "yarn run lint:js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -21,7 +23,8 @@
     "babel-register": "^6.26.0",
     "eslint": "^4.18.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0"
+    "eslint-plugin-import": "^2.9.0",
+    "husky": "^0.14.3"
   },
   "eslintConfig": {
     "root": true,
@@ -43,7 +46,7 @@
           "targets": {
             "node": "current"
           }
-        }  
+        }
       ]
     ]
   }
